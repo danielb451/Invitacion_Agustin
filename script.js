@@ -9,7 +9,7 @@ const paintImpact = document.getElementById("paintImpact");
 // ================================
 // CONFIGURACIÓN RÁPIDA
 // ================================
-const PARTY_DATE = new Date("2026-09-07T15:30:00-04:00");
+const PARTY_DATE = new Date("2026-09-08T15:30:00-04:00");
 
 // Reemplaza esta URL con el enlace EXACTO de Google Maps de "Gulag"
 // cuando lo tengas.
