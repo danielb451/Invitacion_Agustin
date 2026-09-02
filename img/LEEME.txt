@@ -1,0 +1,5 @@
+COLOCA AQUÍ:
+- arma.png
+- imagen1.png
+- imagen2.png
+- agustin.png

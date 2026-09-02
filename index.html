@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#12170f" />
+  <title>Agustín cumple 9 | Paintball Party</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =========================
+       PANTALLA 1: DISPARO
+       Fondo: img/imagen1.png
+       Arma:  img/arma.png
+       ========================= -->
+  <section class="intro" id="intro" aria-label="Inicio de la invitación">
+    <div class="intro-overlay"></div>
+
+    <div class="intro-copy">
+      <span class="mission-label">MISIÓN ESPECIAL</span>
+      <h1>¿LISTO PARA ENTRAR<br>EN COMBATE?</h1>
+      <p>Aprieta el gatillo para descubrir la invitación.</p>
+    </div>
+
+    <div class="target-ring target-ring-1"></div>
+    <div class="target-ring target-ring-2"></div>
+
+    <div class="weapon-stage" id="weaponStage">
+      <img
+        src="img/arma.png"
+        alt="Marcadora de paintball"
+        class="weapon"
+        id="weapon"
+        draggable="false"
+      />
+
+      <div class="muzzle-flash" id="muzzleFlash" aria-hidden="true"></div>
+      <div class="paintball" id="paintball" aria-hidden="true"></div>
+    </div>
+
+    <button class="shoot-btn" id="shootBtn" type="button">
+      <span class="crosshair">⌖</span>
+      <span>DISPARAR</span>
+    </button>
+
+    <p class="sound-note">Activa el sonido para una mejor experiencia</p>
+
+    <div class="paint-impact" id="paintImpact" aria-hidden="true">
+      <span class="impact-core"></span>
+      <span class="drop d1"></span>
+      <span class="drop d2"></span>
+      <span class="drop d3"></span>
+      <span class="drop d4"></span>
+      <span class="drop d5"></span>
+      <span class="drop d6"></span>
+    </div>
+  </section>
+
+  <!-- =========================
+       INVITACIÓN
+       Fondo principal: img/imagen2.png
+       Foto: img/agustin.png
+       ========================= -->
+  <main class="invitation" id="invitation" aria-hidden="true">
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-shade"></div>
+
+      <div class="paint-splash splash-a"></div>
+      <div class="paint-splash splash-b"></div>
+      <div class="paint-splash splash-c"></div>
+
+      <div class="hero-content reveal">
+        <p class="eyebrow">OPERACIÓN: CUMPLEAÑOS</p>
+
+        <div class="birthday-photo-wrap">
+          <div class="photo-reticle"></div>
+          <img
+            src="img/agustin.png"
+            alt="Foto de Agustín"
+            class="birthday-photo"
+            id="birthdayPhoto"
+          />
+          <span class="level-badge">NIVEL 9</span>
+        </div>
+
+        <p class="small-title">¡ESTÁS RECLUTADO PARA CELEBRAR!</p>
+        <h2>AGUSTÍN</h2>
+        <p class="age">CUMPLE <strong>9 AÑOS</strong></p>
+
+        <div class="mission-line">
+          <span></span>
+          <b>PAINTBALL PARTY</b>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="scroll-cue">DESLIZA ↓</div>
+    </section>
+
+    <section class="briefing section">
+      <div class="section-heading reveal">
+        <span class="section-code">01 // BRIEFING</span>
+        <h3>DATOS DE LA MISIÓN</h3>
+        <p>Prepara tu equipo. La batalla por el cumpleaños está a punto de comenzar.</p>
+      </div>
+
+      <div class="mission-grid">
+        <article class="mission-card reveal">
+          <div class="card-icon">◷</div>
+          <span class="card-label">FECHA</span>
+          <h4>7 DE SEPTIEMBRE</h4>
+          <p>3:30 PM</p>
+        </article>
+
+        <article class="mission-card reveal">
+          <div class="card-icon">⌖</div>
+          <span class="card-label">BASE DE OPERACIONES</span>
+          <h4>GULAG</h4>
+          <p>Abre la ubicación para llegar al campo de batalla.</p>
+          <a
+            class="location-btn"
+            id="locationBtn"
+            href="https://www.google.com/maps/search/?api=1&query=Gulag"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VER UBICACIÓN ↗
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="countdown-section section">
+      <div class="section-heading reveal">
+        <span class="section-code">02 // CUENTA REGRESIVA</span>
+        <h3>LA MISIÓN COMIENZA EN</h3>
+      </div>
+
+      <div class="countdown reveal" id="countdown">
+        <div><strong id="days">00</strong><span>DÍAS</span></div>
+        <div><strong id="hours">00</strong><span>HORAS</span></div>
+        <div><strong id="minutes">00</strong><span>MIN</span></div>
+        <div><strong id="seconds">00</strong><span>SEG</span></div>
+      </div>
+    </section>
+
+    <section class="rules section">
+      <div class="section-heading reveal">
+        <span class="section-code">03 // EQUIPO</span>
+        <h3>PREPÁRATE PARA LA BATALLA</h3>
+      </div>
+
+      <div class="tips reveal">
+        <div class="tip">
+          <span>01</span>
+          <p>Ven con muchas ganas de jugar y divertirte.</p>
+        </div>
+        <div class="tip">
+          <span>02</span>
+          <p>Usa ropa cómoda para moverte en el campo.</p>
+        </div>
+        <div class="tip">
+          <span>03</span>
+          <p>Tu misión principal: ¡celebrar los 9 años de Agustín!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rsvp section" id="confirmacion">
+      <div class="rsvp-card reveal">
+        <span class="section-code">04 // CONFIRMACIÓN</span>
+        <h3>CONFIRMA TU ASISTENCIA</h3>
+        <p>Necesitamos saber con quién contamos para esta misión.</p>
+
+        <form id="rsvpForm" class="rsvp-form">
+          <label>
+            <span>Nombre</span>
+            <input type="text" id="guestName" name="guestName" placeholder="Nombre del invitado" required />
+          </label>
+
+          <label>
+            <span>¿Asistirás?</span>
+            <select id="attendance" name="attendance" required>
+              <option value="">Selecciona una opción</option>
+              <option value="Sí, asistiré">Sí, asistiré</option>
+              <option value="No podré asistir">No podré asistir</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Mensaje opcional</span>
+            <textarea id="message" name="message" rows="3" placeholder="Escribe un mensaje para Agustín"></textarea>
+          </label>
+
+          <button type="submit" class="confirm-btn">CONFIRMAR MISIÓN</button>
+        </form>
+
+        <div class="success-message" id="successMessage" aria-live="polite">
+          ✓ Confirmación registrada. ¡Misión recibida!
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>HECHO CON PRECISIÓN POR <strong>BAUTTECH SOLUTIONS</strong></p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
