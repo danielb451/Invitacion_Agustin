@@ -13,7 +13,7 @@ const PARTY_DATE = new Date("2026-09-07T15:30:00-04:00");
 
 // Reemplaza esta URL con el enlace EXACTO de Google Maps de "Gulag"
 // cuando lo tengas.
-const LOCATION_URL = "https://www.google.com/maps/search/?api=1&query=Gulag";
+const LOCATION_URL = "https://maps.app.goo.gl/iu1Yq9Vfozrkrq828?g_st=ic";
 document.getElementById("locationBtn").href = LOCATION_URL;
 
 let fired = false;
