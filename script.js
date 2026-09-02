@@ -13,7 +13,7 @@ const PARTY_DATE = new Date("2026-09-07T15:30:00-04:00");
 
 // Reemplaza esta URL con el enlace EXACTO de Google Maps de "Gulag"
 // cuando lo tengas.
-const LOCATION_URL = "https://maps.app.goo.gl/iu1Yq9Vfozrkrq828?g_st=ic";
+const LOCATION_URL = "https://www.google.com/maps/search/?api=1&query=Gulag";
 document.getElementById("locationBtn").href = LOCATION_URL;
 
 let fired = false;
@@ -184,28 +184,59 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
 
 // ================================
-// CONFIRMACIÓN DE ASISTENCIA
+// CONFIRMACIÓN DE ASISTENCIA POR WHATSAPP
 // ================================
+const WHATSAPP_NUMBER = "59172269267";
+
 const rsvpForm = document.getElementById("rsvpForm");
 const successMessage = document.getElementById("successMessage");
 
 rsvpForm.addEventListener("submit", event => {
   event.preventDefault();
 
+  const nombre = document.getElementById("guestName").value.trim();
+  const asistencia = document.getElementById("attendance").value;
+  const mensaje = document.getElementById("message").value.trim();
+
+  if (!nombre || !asistencia) return;
+
+  const textoWhatsApp = [
+    "🎯 *CONFIRMACIÓN – CUMPLE DE AGUSTÍN*",
+    "",
+    `🫂 *Invitado:* ${nombre}`,
+    `✅ *Asistencia:* ${asistencia}`,
+    mensaje ? `💬 *Mensaje:* ${mensaje}` : "",
+    "",
+    "🎂 *Agustín cumple 9 años*",
+    "🗓️ *7 de septiembre*",
+    "🕛 *3:30 PM*",
+    "📍 *Lugar:* Gulag"
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  // Guarda también una copia local en el navegador.
   const confirmation = {
-    nombre: document.getElementById("guestName").value.trim(),
-    asistencia: document.getElementById("attendance").value,
-    mensaje: document.getElementById("message").value.trim(),
+    nombre,
+    asistencia,
+    mensaje,
     fechaRegistro: new Date().toISOString()
   };
+  localStorage.setItem(
+    "confirmacion_agustin_paintball",
+    JSON.stringify(confirmation)
+  );
 
-  // Guarda la confirmación en este dispositivo.
-  localStorage.setItem("confirmacion_agustin_paintball", JSON.stringify(confirmation));
+  const whatsappUrl =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(textoWhatsApp)}`;
 
+  successMessage.textContent =
+    "✓ Abriendo WhatsApp para enviar tu confirmación...";
   successMessage.classList.add("show");
-  rsvpForm.querySelector(".confirm-btn").textContent = "✓ MISIÓN CONFIRMADA";
 
-  setTimeout(() => {
-    successMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, 100);
+  // Abre WhatsApp / WhatsApp Web con el mensaje listo.
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+  rsvpForm.querySelector(".confirm-btn").textContent =
+    "✓ ABRIR WHATSAPP DE NUEVO";
 });
