@@ -208,7 +208,7 @@ rsvpForm.addEventListener("submit", event => {
     mensaje ? `💬 *Mensaje:* ${mensaje}` : "",
     "",
     "🎂 *Agustín cumple 9 años*",
-    "🗓️ *7 de septiembre*",
+    "🗓️ *8 de septiembre*",
     "🕛 *3:30 PM*",
     "📍 *Lugar:* Gulag"
   ]
